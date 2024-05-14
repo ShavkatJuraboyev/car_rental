@@ -1,0 +1,146 @@
+{% load static %}
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+        <li class="nav-item">
+            <div class="d-flex sidebar-profile">
+                <div class="sidebar-profile-image">
+                    <img src="{{request.user.admin_profile.get_admin_avatar}}" alt="image">
+                    <span class="sidebar-status-indicator"></span>
+                </div>
+                <div class="sidebar-profile-name">
+                    <p class="sidebar-name">
+                        {{ request.user.get_full_name }}
+                    </p>
+                    <p class="sidebar-designation">
+
+                    </p>
+                </div>
+            </div>
+            <div class="nav-search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Izlash..." aria-label="search"
+                           aria-describedby="search">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="search">
+                        <i class="typcn typcn-zoom"></i>
+                      </span>
+                    </div>
+                </div>
+            </div>
+            <p class="sidebar-menu-title">Menu</p>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'dashboard' %}">
+                <i class="typcn typcn-device-desktop menu-icon"></i>
+                <span class="menu-title">Dashboard <span class="badge badge-primary ml-3">New</span></span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                <i class="typcn typcn-book menu-icon"></i>
+                <span class="menu-title">Mashinalar</span>
+                <i class="typcn typcn-chevron-right menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" href="">Mashinalar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Mashina qo'shish</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+                <i class="typcn typcn-user menu-icon"></i>
+                <span class="menu-title">Adminlar</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'admins' %}"> Adminlar </a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'admins_input' %}"> Admin qo'shish </a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#new" aria-expanded="false" aria-controls="new">
+                <i class="typcn typcn-document-text menu-icon"></i>
+                <span class="menu-title">Arizalar</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="new">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" href="">Barcha arizalar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Yangi arizalar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Tasdiqlangan arizalar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Qaytarilgan arizalar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Rad etilgan arizalar</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+                <i class="typcn typcn-chart-pie-outline menu-icon"></i>
+                <span class="menu-title">Statistika</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="charts">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" href="">Statistikalar</a></li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="nav-item ">
+            <hr>
+            <a class="nav-link" data-toggle="collapse" href="#profil" aria-expanded="false" aria-controls="icons">
+                <i class="typcn typcn-cog menu-icon text-secondary"></i>
+                <span class="menu-title">Sozlamalar</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="profil">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'admin_profile' %}">Profilni yangilash</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#logout" aria-expanded="false" aria-controls="auth">
+                <i class="typcn typcn-power menu-icon text-primary"></i>
+                <span class="menu-title">Chiqish</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="logout">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Tizimdan chiqish </a></li>
+                </ul>
+            </div>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
+            <i class="typcn typcn-th-small-outline menu-icon"></i>
+            <span class="menu-title">Tables</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="tables">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="pages/documentation/documentation.html">
+            <i class="typcn typcn-document-text menu-icon"></i>
+            <span class="menu-title">Documentation</span>
+          </a>
+        </li> -->
+    </ul>
+    <ul class="sidebar-legend">
+        <li>
+            <p class="sidebar-menu-title">Turkum</p>
+        </li>
+        <li class="nav-item"><a href="" class="nav-link">#Olinmagan kitoblar</a></li>
+        <li class="nav-item"><a href="" class="nav-link">#Olingan kitoblar</a></li>
+        <li class="nav-item"><a href="" class="nav-link">#Berilgan kitoblar</a></li>
+    </ul>
+</nav>

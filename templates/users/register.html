@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>TATU Samarqand filiali</title>
+  <link rel="stylesheet" href="{% static 'admins/vendors/typicons.font/font/typicons.css' %}">
+  <link rel="stylesheet" href="{% static 'admins/vendors/css/vendor.bundle.base.css' %}">
+  <link rel="stylesheet" href="{% static 'admins/css/vertical-layout-light/style.css' %}">
+  <link rel="shortcut icon" href="{% static 'admins/images/favicon.png' %}" />
+
+</head>
+
+<body>
+  
+  <div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+      <div class="content-wrapper d-flex align-items-center auth px-0">
+        <div class="row w-100 mx-0">
+          <div class="col-lg-12 mx-auto">
+            <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+              <div class="brand-logo text-center">
+                <img class="" src="{% static 'img/illustrations/Logo.png' %}" alt="logo" style="height: 80px; width: 80px;" >
+              </div>
+              <h3 class="text-center">Toshkent axborot texnologiyalari universiteti</h3>
+              <h5 class="font-weight-light text-center">Samarqand filiali</h6>
+              <form method="post" action="" class="pt-3" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-3">
+                        <div class="form-group">
+                            {{ form.first_name }}
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            {{ form.last_name }}
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            {{ form.username }}
+                            <span class="text-error">{{ form.username.errors }}</span>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                      <div class="form-group">
+                          <input type="text" name="address" id="" class="form-control" placeholder="Address">
+                      </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="form-group">
+                      <label for="images">Rasm</label>
+                        <input type="file" name="images" id="images" class="form-control" accept=".jpg, .png">
+                    </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group">
+                    <label for="pasport">Pasport rasm</label>
+                      <input type="file" name="pasport" id="pasport" class="form-control" accept=".jpg, .png">
+                  </div>
+              </div>
+              <div class="col-3">
+                <div class="form-group">
+                  <label for="prava">Prava rasm</label>
+                    <input type="file" name="prava" id="prava" class="form-control" accept=".jpg, .png">
+                </div>
+            </div>
+            <div class="col-3">
+              <div class="form-group">
+                <label for="phone">Tel nomer</label>
+                  <input type="text" name="phone" id="phone" class="form-control" placeholder="+998901234567">
+              </div>
+          </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            {{ form.email }}
+                            <span class="text-error">{{ form.email.errors }}</span>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            {{ form.password1 }}
+                            <span class="text-error">{{ form.password1.errors }}</span>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            {{ form.password2 }}
+                            <span class="text-error">{{ form.password2.errors }}</span>
+                        </div>
+                    </div>
+                </div> 
+                <div class="mt-3">
+                    <button type="submit" name="register" class="btn btn-block btn-facebook auth-form-btn">
+                        Ro'yxatdan o'tish
+                    </button>
+                </div>
+                <div class="text-center mt-4 font-weight-light">
+                    Hisobingiz bormi?  <a href="{% url 'login' %}" class="text-primary"> Tizimga kirish</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="{% static 'admins/vendors/js/vendor.bundle.base.js' %}"></script>
+  <script src="{% static 'admins/js/off-canvas.js' %}"></script>
+  <script src="{% static 'admins/js/hoverable-collapse.js' %}"></script>
+  <script src="{% static 'admins/js/template.js' %}"></script>
+  <script src="{% static 'admins/js/settings.js' %}"></script>
+  <script src="{% static 'admins/js/todolist.js' %}"></script>
+</body>
+
+</html>

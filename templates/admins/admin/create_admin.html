@@ -1,0 +1,76 @@
+{% extends "admins/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid page-body-wrapper">
+    {% include 'admins/sidbare.html' %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-md-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Admin</h4>
+                            <p class="card-description">
+                                Admin qo'shish
+                            </p>
+                            <form class="forms-sample" method="post">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="username">Username</label>
+                                            {{ forms.username }}
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">Email manzil</label>
+                                            {{ forms.email }}
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="id_password1">Parol</label>
+                                            <input class="form-control" type="password" name="password1" autocomplete="new-password" required="" id="id_password1">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="id_password2">Parol 2</label>
+                                            <input class="form-control" type="password" name="password2" autocomplete="new-password" required="" id="id_password2">
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-secondary mr-2">Register</button>
+                                <button type="button" class="btn btn-light">Cancel</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- content-wrapper ends -->
+        {% include 'admins/footer.html' %}
+    </div>
+    <!-- main-panel ends -->
+
+
+</div>
+
+{% endblock content %}
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Register</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Register</h1>-->
+<!--&lt;!&ndash;<form method="post">&ndash;&gt;-->
+<!--&lt;!&ndash;    {% csrf_token %}&ndash;&gt;-->
+<!--&lt;!&ndash;    {{ forms.as_p }}&ndash;&gt;-->
+<!--&lt;!&ndash;    <button type="submit">Register</button>&ndash;&gt;-->
+<!--&lt;!&ndash;</form>&ndash;&gt;-->
+<!--</body>-->
+<!--</html>-->
+

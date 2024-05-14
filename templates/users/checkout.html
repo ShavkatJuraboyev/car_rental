@@ -1,0 +1,161 @@
+{% extends 'users/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<style>
+    table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+img {
+    max-width: 100px; /* Optional: Define maximum width for images */
+}
+
+</style>
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{% static 'users/images/bg_2.jpg' %}');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+          <div class="col-md-9 ftco-animate pb-5">
+          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>About us <i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-3 bread">About Us</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section ftco-no-pb ftco-no-pt">
+    	<div class="container">
+                    <form action="" class="request-form ftco-animate">
+                        <h1 class="center">Siz tanlagan mashina</h1>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Rasm</th>
+                                    <th>Model</th>
+                                    <th>Ta'rif</th>
+                                    <th>Bosib o'tgan yo'l</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for rewiew in rewiews %}
+                                    {% if rewiew.status == 'berildi' or rewiew.status == 'yangi' %}
+                                        {% if request.user == rewiew.carrentai.user %}
+                                <tr>
+                                    <td><a href=""><img src="{{rewiew.cars.get_image}}" alt="{{rewiew.cars.carmodels}}"></a></td>
+                                    <td><a href="">{{rewiew.cars.carmodels}}</a></td>
+                                    <td><a href="">{{rewiew.cars.description}}</a></td>
+                                    <td><a href="">{{rewiew.cars.kilometers}} m</a></td>
+                                </tr>
+                                
+                                    {%endif%}
+                                    {%endif%}               
+                                {%endfor%}
+                            </tbody>
+                        </table>
+                    </form>
+         </div>
+    </section> <hr>
+    <section class="ftco-section ftco-no-pb ftco-no-pt">
+        <div class="container">
+            <form action="#" class="request-form ftco-animate" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                    <div class="row no-gutters">
+                        <div class="col-md-6 img d-flex align-items-end" style="background-image: url('{{cars.get_image}}'); width: 100%;">
+                            <div class="heading-section mb-5 pl-md-5 from-day">
+                                <span class="subheading">{{cars.carmodels.carbrends}}</span>
+                                <h2 class="mb-4" style="color: aliceblue;">{{cars.carmodels}}</h2>
+                                <!-- <p>{{cars.description}}</p> -->
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+                        <div class="col-md-5 wrap-about py-md-5 ftco-animate">
+                                <h2>Sayohatingizni qiling</h2>
+                                    <div class="form-group">
+                                        <label for="" class="label">Olib ketish joyi</label>
+                                        <select name="manzil1" id="" class="form-control">
+                                            <option value="">Shahar, aeroport, vokzal va boshqalar</option>
+                                            {% for manzil1 in manzil11 %}
+                                            <option value="{{manzil1.id}}">{{manzil1.manzil1}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="label">Tashlab ketish joyi</label>
+                                        <select name="manzil2" id="" class="form-control">
+                                            <option value="">Shahar, aeroport, vokzal va boshqalar</option>
+                                            {% for manzil2 in manzil22 %}
+                                            <option value="{{manzil2.id}}">{{manzil2.manzil2}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                <div class="d-flex">
+                                    <div class="form-group mr-2">
+                                        <label for="book_pick_date" class="label">Olib ketish sanasi</label>
+                                        <input type="text" name="sana1" class="form-control" id="book_pick_date" placeholder="Sana">
+                                    </div>
+                                    <div class="form-group ml-2">
+                                        <label for="book_off_date" class="label">Tashlab ketish sanasi</label>
+                                        <input type="text" name="sana2" class="form-control" id="book_off_date" placeholder="Sana">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="label">Qabul qilish vaqti</label>
+                                    <input type="text" name="vaqt" class="form-control" id="time_pick" placeholder="Vaqt">
+                                    <input type="text" name="car" value="{{cars.id}}" hidden>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="search-wrap-1 ftco-animate ">
+                                    <div class="row">
+                                        <div class="col-lg align-items-end">
+                                            <div class="form-group">
+                                                <label class="label">Ism</label>
+                                                <input type="text" class="form-control" value="{{request.user.first_name}}" readonly>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="label">Familiya</label>
+                                                <input type="text" class="form-control" value="{{request.user.last_name}}" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg align-items-end">
+                                            <div class="form-group">
+                                                <label class="label">Email</label>
+                                                <input type="email" class="form-control" value="{{request.user.email}}" readonly>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="label">Username</label>
+                                                <input type="text" class="form-control" value="{{request.user.username}}" readonly>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary py-3 px-4">Ariza berish</button>
+                    </div>
+            </form>
+	    </div>
+    </section>
+
+    {% endblock content %}

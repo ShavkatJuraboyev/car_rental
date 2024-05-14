@@ -1,0 +1,71 @@
+{% extends "admins/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid page-body-wrapper">
+    {% include 'admins/sidbare.html' %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Admin qo'shish</h4>
+                            <p class="card-description">
+                            </p>
+                            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label>Username: <a href="{% url 'create_admin' %}">+</a></label>
+                                            {{forms.user}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <div class="form-check form-check-info">
+                                            <label for="id_is_admin" class="form-check-label">
+                                                {{forms.is_admin}}
+                                                Admin
+                                                <i class="input-helper"></i></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="form-check form-check-info">
+                                            <label for="id_is_self_visible" class="form-check-label">
+                                                {{forms.is_self_visible}}
+                                                Katta admin
+                                                <i class="input-helper"></i></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-secondary mr-2">Saqlash</button>
+                                <a href="#" class="btn btn-light">Ortga qaytish</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- content-wrapper ends -->
+        {% include 'admins/footer.html' %}
+    </div>
+    <!-- main-panel ends -->
+
+
+</div>
+<script>
+    document.getElementById('fileInput').addEventListener('change', function() {
+        var fileName = this.value.split('\\').pop();
+        var fileUploadInfo = document.querySelector('.file-upload-info');
+        if (fileName) {
+            fileUploadInfo.value = fileName;
+        } else {
+            fileUploadInfo.value = "Fayl yuklash";
+        }
+    });
+</script>
+
+{% endblock content %}

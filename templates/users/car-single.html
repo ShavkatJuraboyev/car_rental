@@ -1,0 +1,306 @@
+{% extends 'users/base.html' %}
+
+{% load static %}
+
+{% block content %}
+    
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{% static 'users/images/bg_2.jpg' %}');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+          <div class="col-md-9 ftco-animate pb-5">
+          	<p class="breadcrumbs"><span class="mr-2"><a href="/">Bosh sahifa <i class="ion-ios-arrow-forward"></i></a></span> <span>Avtomobil tafsilotlari<i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-3 bread">Car Details</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section ftco-car-details">
+      <div class="container">
+      	<div class="row justify-content-center">
+      		<div class="col-md-12">
+      			<div class="car-details">
+      				<div class="img" style="background-image: url('{{cars.get_image}}');"></div>
+      				<div class="text text-center">
+      					<span class="subheading">{{cars.carmodels.carbrends}}</span>
+      					<h2>{{cars.carmodels}}</h2>
+      				</div>
+      			</div>
+      		</div>
+      	</div>
+      	<div class="row">
+      		<div class="col-md d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services">
+              <div class="media-body py-md-4">
+              	<div class="d-flex mb-3 align-items-center">
+	              	<div class="icon"><span class="flaticon-dashboard"></span></div>
+	              	<div class="text">
+		                <h3 class="heading mb-0 pl-3">
+		                	Kilometr
+		                	<span>{{cars.kilometers}}</span>
+		                </h3>
+	                </div>
+                </div>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services">
+              <div class="media-body py-md-4">
+              	<div class="d-flex mb-3 align-items-center">
+	              	<div class="icon"><span class="flaticon-car-machine"></span></div>
+	              	<div class="text">
+		                <h3 class="heading mb-0 pl-3">
+		                	Yuqish
+		                	<span>{{cars.mator}}</span>
+		                </h3>
+	                </div>
+                </div>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services">
+              <div class="media-body py-md-4">
+              	<div class="d-flex mb-3 align-items-center">
+	              	<div class="icon"><span class="flaticon-car-seat"></span></div>
+	              	<div class="text">
+		                <h3 class="heading mb-0 pl-3">
+		                	O'rindiqlar
+		                	<span>{{cars.sat_down}} kattalar</span>
+		                </h3>
+	                </div>
+                </div>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services">
+              <div class="media-body py-md-4">
+              	<div class="d-flex mb-3 align-items-center">
+	              	<div class="icon"><span class="flaticon-backpack"></span></div>
+	              	<div class="text">
+		                <h3 class="heading mb-0 pl-3">
+		                	Bagaj
+		                	<span>{{cars.baggage}} ta sumka</span>
+		                </h3>
+	                </div>
+                </div>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services">
+              <div class="media-body py-md-4">
+              	<div class="d-flex mb-3 align-items-center">
+	              	<div class="icon"><span class="flaticon-diesel"></span></div>
+	              	<div class="text">
+		                <h3 class="heading mb-0 pl-3">
+		                	Yoqilg'i
+		                	<span>{{cars.fuel}}</span>
+		                </h3>
+	                </div>
+                </div>
+              </div>
+            </div>      
+          </div>
+      	</div>
+      	<div class="row">
+      		<div class="col-md-12 pills">
+				<div class="bd-example bd-example-tabs">
+					<div class="d-flex justify-content-center">
+						<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+							<li class="nav-item">
+							    <a class="nav-link active" id="pills-description-tab" data-toggle="pill" href="#pills-description" role="tab" aria-controls="pills-description" aria-expanded="true">Xususiyatlari</a>
+							</li>
+							<li class="nav-item">
+							    <a class="nav-link" id="pills-manufacturer-tab" data-toggle="pill" href="#pills-manufacturer" role="tab" aria-controls="pills-manufacturer" aria-expanded="true">Tavsif</a>
+							</li>
+							<li class="nav-item">
+							    <a class="nav-link" id="pills-review-tab" data-toggle="pill" href="#pills-review" role="tab" aria-controls="pills-review" aria-expanded="true">Ko‘rib chiqish</a>
+							</li>
+							</ul>
+							</div>
+
+						  <div class="tab-content" id="pills-tabContent">
+						    <div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
+						    	<div class="row">
+						    		<div class="col-md-4">
+						    			<ul class="features">
+						    				<li class="check"><span class="ion-ios-checkmark"></span>Konditsioner</li>
+						    				<li class="check"><span class="ion-ios-checkmark"></span>Bolalar o'rindig'i</li>
+						    				<li class="check"><span class="ion-ios-checkmark"></span>GPS</li>
+						    				<li class="check"><span class="ion-ios-checkmark"></span>Bagaj</li>
+						    				<li class="check"><span class="ion-ios-checkmark"></span>Musiqa</li>
+						    			</ul>
+						    		</div>
+						    		<div class="col-md-4">
+						    			<ul class="features">
+						    				<li class="check"><span class="ion-ios-checkmark"></span>Havfsizlik kamari</li>
+						    				<li class="remove"><span class="ion-ios-close"></span>Uxlab yotgan yotoq</li>
+						    				<li class="check"><span class="ion-ios-checkmark"></span>Suv</li>
+						    				<li class="check"><span class="ion-ios-checkmark"></span>Bluetooth</li>
+						    				<li class="remove"><span class="ion-ios-close"></span>Bortli kompyuter</li>
+						    			</ul>
+						    		</div>
+						    		<div class="col-md-4">
+						    			<ul class="features">
+						    				<li class="check"><span class="ion-ios-checkmark"></span>Audio kiritish</li>
+						    				<li class="check"><span class="ion-ios-checkmark"></span>Uzoq muddatli sayohatlar</li>
+						    				<li class="check"><span class="ion-ios-checkmark"></span>Avtomobil to'plami</li>
+						    				<li class="check"><span class="ion-ios-checkmark"></span>Masofaviy markaziy qulflash</li>
+						    				<li class="check"><span class="ion-ios-checkmark"></span>Iqlim nazorati</li>
+						    			</ul>
+						    		</div>
+						    	</div>
+						    </div>
+
+						    <div class="tab-pane fade" id="pills-manufacturer" role="tabpanel" aria-labelledby="pills-manufacturer-tab">
+						      <p>{{cars.description}}</p>
+						    </div>
+
+						    <div class="tab-pane fade" id="pills-review" role="tabpanel" aria-labelledby="pills-review-tab">
+						      <div class="row">
+								
+							   		<div class="col-md-7">
+							   			<h3 class="head">{{reviews.count}} Reviews</h3>
+										{% for review in reviews %}
+										{% if review.is_comentary == True %}
+							   			<div class="review d-flex">
+									   		<div class="user-img" style="background-image: url('{{review.carrentai.get_image_user}}')"></div>
+									   		<div class="desc">
+									   			<h4>
+									   				<span class="text-left">{{review.carrentai.first_name}}</span>
+									   				<span class="text-right">{{review.update}}</span>
+									   			</h4>
+									   			<p class="star">
+									   				<span>
+									   					<i class="ion-ios-star"></i>
+									   					<i class="ion-ios-star"></i>
+									   					<i class="ion-ios-star"></i>
+									   					<i class="ion-ios-star"></i>
+									   					<i class="ion-ios-star"></i>
+								   					</span>
+								   					<span class="text-right"><a href="#" class="reply"><i class="icon-reply"></i></a></span>
+									   			</p>
+									   			<p>{{review.description}}</p>
+									   		</div>
+									   	</div>
+										
+										{% endif %}
+										{% endfor %}
+							   		</div>
+								
+							   		<div class="col-md-5">
+							   			<div class="rating-wrap">
+								   			<h3 class="head">Give a Review</h3>
+								   			<div class="wrap">
+									   			<p class="star">
+									   				<span>
+									   					<i class="ion-ios-star"></i>
+									   					<i class="ion-ios-star"></i>
+									   					<i class="ion-ios-star"></i>
+									   					<i class="ion-ios-star"></i>
+									   					<i class="ion-ios-star"></i>
+									   					(98%)
+								   					</span>
+								   					<span>20 Reviews</span>
+									   			</p>
+									   			<p class="star">
+									   				<span>
+									   					<i class="ion-ios-star"></i>
+									   					<i class="ion-ios-star"></i>
+									   					<i class="ion-ios-star"></i>
+									   					<i class="ion-ios-star"></i>
+									   					<i class="ion-ios-star"></i>
+									   					(85%)
+								   					</span>
+								   					<span>10 Reviews</span>
+									   			</p>
+									   			<p class="star">
+									   				<span>
+									   					<i class="ion-ios-star"></i>
+									   					<i class="ion-ios-star"></i>
+									   					<i class="ion-ios-star"></i>
+									   					<i class="ion-ios-star"></i>
+									   					<i class="ion-ios-star"></i>
+									   					(70%)
+								   					</span>
+								   					<span>5 Reviews</span>
+									   			</p>
+									   			<p class="star">
+									   				<span>
+									   					<i class="ion-ios-star"></i>
+									   					<i class="ion-ios-star"></i>
+									   					<i class="ion-ios-star"></i>
+									   					<i class="ion-ios-star"></i>
+									   					<i class="ion-ios-star"></i>
+									   					(10%)
+								   					</span>
+								   					<span>0 Reviews</span>
+									   			</p>
+									   			<p class="star">
+									   				<span>
+									   					<i class="ion-ios-star"></i>
+									   					<i class="ion-ios-star"></i>
+									   					<i class="ion-ios-star"></i>
+									   					<i class="ion-ios-star"></i>
+									   					<i class="ion-ios-star"></i>
+									   					(0%)
+								   					</span>
+								   					<span>0 Reviews</span>
+									   			</p>
+									   		</div>
+								   		</div>
+							   		</div>
+							   	</div>
+						    </div>
+						  </div>
+				</div>
+		      </div>
+		</div>
+      </div>
+    </section>
+
+    <section class="ftco-section ftco-no-pt">
+    	<div class="container-fluid px-4">
+    		<div class="row justify-content-center">
+          <div class="col-md-12 heading-section text-center ftco-animate mb-5">
+          	<span class="subheading">Choose Car</span>
+            <h2 class="mb-2">Related Cars</h2>
+          </div>
+        </div>
+    		<div class="row">
+				{% for review in related_cars %}
+    			<div class="col-md-3">
+    				<div class="car-wrap ftco-animate">
+    					<div class="img d-flex align-items-end" style="background-image: url('{{review.get_image}}');">
+    						<div class="price-wrap d-flex">
+    							<span class="rate">{{review.carprices.price_1}}</span>
+    							<p class="from-day">
+    								<span>From</span>
+    								<span>/Day</span>
+    							</p>
+    						</div>
+    					</div>
+    					<div class="text p-4 text-center">
+    						<h2 class="mb-0"><a href="#">{{review.carmodels.name}}</a></h2>
+    						<span>{{review.carmodels.carbrends.name}}</span>
+    						<p class="d-flex mb-0 d-block">
+								{% if request.user.is_authenticated %}
+								<a href="{% url 'checkout' review.id %}" name="checkout" class="btn btn-black btn-outline-black mr-1">Hoziroq band qiling</a>
+								{% else %}
+								<a class="btn btn-black btn-outline-black mr-1">Hoziroq band qiling</a>
+								{% endif %}
+								<a href="{% url 'car_single' pk=review.id %}" class="btn btn-black btn-outline-black ml-1">Tafsilotlar</a>
+							</p>
+    					</div>
+    				</div>
+    			</div>
+				{% endfor %}
+    		</div>
+    	</div>
+    </section>
+
+{% endblock content %}
