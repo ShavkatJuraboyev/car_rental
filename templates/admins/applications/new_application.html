@@ -2,65 +2,6 @@
 {% load static %}
 
 {% block content %}
-
-<style>
-    @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
-
-body {
-  background: #ffffff;
-  color: #414141;
-  font: 400 17px/2em 'Source Sans Pro', sans-serif;
-}
-
-.select-box {
-  cursor: pointer;
-  position : relative;
-  max-width:  20em;
-  margin: 5em auto;
-  width: 100%;
-}
-
-.select,
-.label {
-  color: #414141;
-  display: block;
-  font: 400 17px/2em 'Source Sans Pro', sans-serif;
-}
-
-.select {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  padding: 5px 0;
-  height: 40px;
-  opacity: 0;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  background: none transparent;
-  border: 0 none;
-}
-.select-box1 {
-  background: #ececec;
-}
-
-.label {
-  position: relative;
-  padding: 5px 10px;
-  cursor: pointer;
-}
-.open .label::after {
-   content: "▲";
-}
-.label::after {
-  content: "▼";
-  font-size: 12px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 5px 15px;
-  border-left: 5px solid #fff;
-}
-</style>
-
 <div class="container-fluid page-body-wrapper">
     {% include 'admins/sidbare.html' %}
     <div class="main-panel">
@@ -83,7 +24,7 @@ body {
                                             </button>
                                         </div>
                                     </div>&nbsp;&nbsp;
-                                    <a href="{% url 'admins_input' %}" class="btn  btn-success"> Qo'shish</a>
+                                    <!-- <a href="{% url 'admins_input' %}" class="btn  btn-success"> Qo'shish</a> -->
                                 </div>
                             </div><br>
                             <div class="table-responsive">
@@ -94,13 +35,16 @@ body {
                                             Rasm
                                         </th>
                                         <th>
-                                           Username
-                                        </th>
-                                        <th>
                                            Ism familiya
                                         </th>
                                         <th>
-                                            Huquqlar
+                                           Telefon
+                                        </th>
+                                        <th>
+                                            Mashina
+                                        </th>
+                                        <th>
+                                            Status
                                         </th>
                                         <th>
                                             Yaralgan vaqt
@@ -111,42 +55,36 @@ body {
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    {% for profile in profiles %}
+                                    {% for ap in appls %}
                                     <tr>
                                         <td class="py-3">
-                                            <img src="{{profile.get_admin_avatar}}" alt="image"/>
+                                            <img src="{{ap.carrentai.get_image_user}}" alt="image"/>
                                         </td>
                                         <td>
-                                            {{profile.user.username}}
+                                            {{ap.carrentai.user.get_full_name}}
                                         </td>
                                         <td>
-                                            {{profile.user.first_name}} {{profile.user.last_name}}
+                                            {{ap.carrentai.phone}}
                                         </td>
                                         <td>
-                                            {% if profile.is_admin %}
-                                            Super admin
-                                            {% elif profile.is_admin_senior %}
-                                            Katta admin
-                                            {% elif profile.is_admin_junior %}
-                                            Kichik admin
-                                            {% elif profile.is_admin_middle %}
-                                            O'rta admin
-                                            {% else %}
-                                            Admin emas
-                                            {% endif %}
+                                            {{ap.cars.carmodels}}
+                                        </td>
+                                        
+                                        <td>
+                                            {{ap.status}}
                                         </td>
                                         <td>
-                                            {{profile.created_at}}
+                                            {{ap.createdate}}
                                         </td>
                                         <td>
-                                            <a href="{% url 'admins_edit' pk=profile.id %}"
+                                            <a href="{% url 'edit_appl' pk=ap.id %}"
                                                class="btn btn-outline-secondary btn-rounded ">
                                                 <i class="typcn typcn-edit text-succes "></i>
                                             </a>
-                                            <a href="{% url 'admin_delete' pk=profile.id %}"
+                                            <!-- <a href=""
                                                class="btn btn-outline-secondary btn-rounded ">
                                                 <i class="typcn typcn-archive text-danger"></i>
-                                            </a>
+                                            </a> -->
                                         </td>
                                     </tr>
                                     {% endfor %}
@@ -164,33 +102,4 @@ body {
     <!-- main-panel ends -->
 
 </div>
-
-<script src="">
-    $("select").on("click" , function() {
-
-$(this).parent(".select-box").toggleClass("open");
-
-});
-
-$(document).mouseup(function (e)
-{
-var container = $(".select-box");
-
-if (container.has(e.target).length === 0)
-{
-    container.removeClass("open");
-}
-});
-
-
-$("select").on("change" , function() {
-
-var selection = $(this).find("option:selected").text(),
-  labelFor = $(this).attr("id"),
-  label = $("[for='" + labelFor + "']");
-
-label.find(".label-desc").html(selection);
-
-});
-</script>
 {% endblock content %}

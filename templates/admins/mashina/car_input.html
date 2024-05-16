@@ -1,0 +1,202 @@
+{% extends "admins/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid page-body-wrapper">
+    {% include 'admins/sidbare.html' %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Mashina qo'shish</h4>
+                            <p class="card-description">
+                            </p>
+                            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label for="image">Mashina:</label>
+                                            {{forms.image}}
+                                            <!-- <input type="file" name="image" id="image" class="form-control"> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label for="kilometers">Bosib o'tgan yo'l:</label>
+                                            {{forms.kilometers}}
+                                            <!-- <input type="number" id="kilometers" name="kilometers" class="form-control" value="{{forms.kilometers}}"> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label for="mator">mator:</label>
+                                            {{forms.mator}}
+                                            <!-- <input type="text" id="mator" name="mator" class="form-control" placeholder="" value="{{forms.mator}}"> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label for="sat_down">O'rindiqlar soni:</label>
+                                            {{forms.sat_down}}
+                                            <!-- <input type="number" id="sat_down" name="sat_down" class="form-control"> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label for="baggage">Bagaj sig'imi:</label>
+                                            {{forms.baggage}}
+                                            <!-- <input type="text" id="baggage" name="baggage" class="form-control" placeholder=""> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label for="fuel">Yoqilg'i:</label>
+                                            {{forms.fuel}}
+                                            <!-- <input type="text" id="fuel" name="fuel" class="form-control" placeholder=""> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label for="description">Manshinaga izoh:</label>
+                                            {{forms.description}}
+                                            <!-- <textarea name="description" id="description" class="form-control"></textarea> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label>Mashina turi: <a href="{% url 'carmodels_input' %}">+</a></label>
+                                            {{forms.carmodels}}
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label>caryear: <a href="{% url 'caryear_input' %}">+</a></label>
+                                            {{forms.caryear}}
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label>carprices: <a href="{% url 'carprice_input' %}">+</a></label>
+                                            {{forms.carprices}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <div class="form-check form-check-info">
+                                            <label for="id_is_konditsioner" class="form-check-label">
+                                                {{forms.is_konditsioner}}
+                                                is_konditsioner
+                                                <i class="input-helper"></i></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="form-check form-check-info">
+                                            <label for="id_is_gps" class="form-check-label">
+                                                {{forms.is_gps}}
+                                                is_gps
+                                                <i class="input-helper"></i></label>
+                                        </div>
+                                    </div><div class="col-3">
+                                        <div class="form-check form-check-info">
+                                            <label for="id_is_bagaj" class="form-check-label">
+                                                {{forms.is_bagaj}}
+                                                is_bagaj
+                                                <i class="input-helper"></i></label>
+                                        </div>
+                                    </div><div class="col-3">
+                                        <div class="form-check form-check-info">
+                                            <label for="id_is_musiqa" class="form-check-label">
+                                                {{forms.is_musiqa}}
+                                                is_musiqa
+                                                <i class="input-helper"></i></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="form-check form-check-info">
+                                            <label for="id_is_kamar" class="form-check-label">
+                                                {{forms.is_kamar}}
+                                                is_kamar
+                                                <i class="input-helper"></i></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="form-check form-check-info">
+                                            <label for="id_is_audio_kiritsh" class="form-check-label">
+                                                {{forms.is_audio_kiritsh}}
+                                                is_audio_kiritsh
+                                                <i class="input-helper"></i></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="form-check form-check-info">
+                                            <label for="id_is_bluethooth" class="form-check-label">
+                                                {{forms.is_bluethooth}}
+                                                is_bluethooth
+                                                <i class="input-helper"></i></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="form-check form-check-info">
+                                            <label for="id_is_uzoq_masofa" class="form-check-label">
+                                                {{forms.is_uzoq_masofa}}
+                                                is_uzoq_masofa
+                                                <i class="input-helper"></i></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="form-check form-check-info">
+                                            <label for="id_is_uxlash_stoli" class="form-check-label">
+                                                {{forms.is_uxlash_stoli}}
+                                                is_uxlash_stoli
+                                                <i class="input-helper"></i></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="form-check form-check-info">
+                                            <label for="id_is_kalit_plut" class="form-check-label">
+                                                {{forms.is_kalit_plut}}
+                                                is_kalit_plut
+                                                <i class="input-helper"></i></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="form-check form-check-info">
+                                            <label for="id_is_bortli_kompyuter" class="form-check-label">
+                                                {{forms.is_bortli_kompyuter}}
+                                                is_bortli_kompyuter
+                                                <i class="input-helper"></i></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-secondary mr-2">Saqlash</button>
+                                <a href="#" class="btn btn-light">Ortga qaytish</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- content-wrapper ends -->
+        {% include 'admins/footer.html' %}
+    </div>
+    <!-- main-panel ends -->
+
+
+</div>
+<script>
+    document.getElementById('fileInput').addEventListener('change', function() {
+        var fileName = this.value.split('\\').pop();
+        var fileUploadInfo = document.querySelector('.file-upload-info');
+        if (fileName) {
+            fileUploadInfo.value = fileName;
+        } else {
+            fileUploadInfo.value = "Fayl yuklash";
+        }
+    });
+</script>
+
+{% endblock content %}

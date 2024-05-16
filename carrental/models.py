@@ -94,7 +94,7 @@ class CarRentai(models.Model):
 
     @property
     def get_image_user(self):
-        return self.images.url if self.images else static('')
+        return self.images.url if self.images else static('admins/default-profile-picture.png')
     
     @property
     def get_image_pasport(self):

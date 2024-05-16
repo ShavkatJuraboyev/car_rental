@@ -16,38 +16,56 @@
                     </p>
                 </div>
             </div>
-            <div class="nav-search">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Izlash..." aria-label="search"
-                           aria-describedby="search">
-                    <div class="input-group-append">
-                      <span class="input-group-text" id="search">
-                        <i class="typcn typcn-zoom"></i>
-                      </span>
-                    </div>
-                </div>
-            </div>
             <p class="sidebar-menu-title">Menu</p>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             <a class="nav-link" href="{% url 'dashboard' %}">
                 <i class="typcn typcn-device-desktop menu-icon"></i>
                 <span class="menu-title">Dashboard <span class="badge badge-primary ml-3">New</span></span>
             </a>
-        </li>
+        </li> -->
         <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <i class="typcn typcn-book menu-icon"></i>
+                <i class="typcn typcn-th-small-outline menu-icon"></i>
                 <span class="menu-title">Mashinalar</span>
                 <i class="typcn typcn-chevron-right menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="">Mashinalar</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Mashina qo'shish</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'cars' %}">Mashinalar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'car_input' %}">Mashina qo'shish</a></li>
                 </ul>
             </div>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#new" aria-expanded="false" aria-controls="new">
+                <i class="typcn typcn-document-text menu-icon"></i>
+                <span class="menu-title">Arizalar</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="new">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'full_appl' %}">Barcha arizalar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'new_appl' %}">Yangi arizalar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'conf_appl' %}">Tasdiqlangan arizalar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'retu_appl' %}">Qaytarilgan arizalar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'refuse_appl' %}">Rad etilgan arizalar</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#map" aria-expanded="false" aria-controls="charts">
+                <i class="typcn typcn-map menu-icon"></i>
+                <span class="menu-title">Manzil</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="map">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'manzil_input' %}">Manzil</a></li>
+                </ul>
+            </div>
+        </li>
+        
         <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
                 <i class="typcn typcn-user menu-icon"></i>
@@ -62,22 +80,6 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#new" aria-expanded="false" aria-controls="new">
-                <i class="typcn typcn-document-text menu-icon"></i>
-                <span class="menu-title">Arizalar</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="new">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="">Barcha arizalar</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Yangi arizalar</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Tasdiqlangan arizalar</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Qaytarilgan arizalar</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Rad etilgan arizalar</a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
                 <i class="typcn typcn-chart-pie-outline menu-icon"></i>
                 <span class="menu-title">Statistika</span>
@@ -85,7 +87,7 @@
             </a>
             <div class="collapse" id="charts">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="">Statistikalar</a></li>
+                    <li class="nav-item"><a class="nav-link" >Statistikalar</a></li>
                 </ul>
             </div>
         </li>
@@ -116,31 +118,5 @@
                 </ul>
             </div>
         </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
-            <i class="typcn typcn-th-small-outline menu-icon"></i>
-            <span class="menu-title">Tables</span>
-            <i class="menu-arrow"></i>
-          </a>
-          <div class="collapse" id="tables">
-            <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
-            </ul>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="pages/documentation/documentation.html">
-            <i class="typcn typcn-document-text menu-icon"></i>
-            <span class="menu-title">Documentation</span>
-          </a>
-        </li> -->
-    </ul>
-    <ul class="sidebar-legend">
-        <li>
-            <p class="sidebar-menu-title">Turkum</p>
-        </li>
-        <li class="nav-item"><a href="" class="nav-link">#Olinmagan kitoblar</a></li>
-        <li class="nav-item"><a href="" class="nav-link">#Olingan kitoblar</a></li>
-        <li class="nav-item"><a href="" class="nav-link">#Berilgan kitoblar</a></li>
     </ul>
 </nav>

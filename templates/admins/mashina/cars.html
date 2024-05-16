@@ -71,7 +71,7 @@ body {
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-6 d-flex justify-content-start">
-                                    <h4 class="card-title">Kitoblar royxati</h4>
+                                    <h4 class="card-title">Mashinalar royxati</h4>
                                 </div>
                                 <div class="col-6 d-flex justify-content-end">
                                     <div class="input-group">
@@ -83,7 +83,7 @@ body {
                                             </button>
                                         </div>
                                     </div>&nbsp;&nbsp;
-                                    <a href="{% url 'admins_input' %}" class="btn  btn-success"> Qo'shish</a>
+                                    <a href="{% url 'car_input' %}" class="btn  btn-success"> Qo'shish</a>
                                 </div>
                             </div><br>
                             <div class="table-responsive">
@@ -94,13 +94,13 @@ body {
                                             Rasm
                                         </th>
                                         <th>
-                                           Username
+                                           Model
                                         </th>
                                         <th>
-                                           Ism familiya
+                                           Bredi
                                         </th>
                                         <th>
-                                            Huquqlar
+                                            Yoqilg'i
                                         </th>
                                         <th>
                                             Yaralgan vaqt
@@ -111,39 +111,29 @@ body {
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    {% for profile in profiles %}
+                                    {% for car in cars %}
                                     <tr>
                                         <td class="py-3">
-                                            <img src="{{profile.get_admin_avatar}}" alt="image"/>
+                                            <img src="{{car.get_image}}" alt="image"/>
                                         </td>
                                         <td>
-                                            {{profile.user.username}}
+                                            {{car.carmodels}}
                                         </td>
                                         <td>
-                                            {{profile.user.first_name}} {{profile.user.last_name}}
+                                            {{car.carmodels.carbrends}}
                                         </td>
                                         <td>
-                                            {% if profile.is_admin %}
-                                            Super admin
-                                            {% elif profile.is_admin_senior %}
-                                            Katta admin
-                                            {% elif profile.is_admin_junior %}
-                                            Kichik admin
-                                            {% elif profile.is_admin_middle %}
-                                            O'rta admin
-                                            {% else %}
-                                            Admin emas
-                                            {% endif %}
+                                            {{car.fuel}}
                                         </td>
                                         <td>
-                                            {{profile.created_at}}
+                                            {{car.carprice}}
                                         </td>
                                         <td>
-                                            <a href="{% url 'admins_edit' pk=profile.id %}"
+                                            <a href="{% url 'cars_edit' pk=car.id %}"
                                                class="btn btn-outline-secondary btn-rounded ">
                                                 <i class="typcn typcn-edit text-succes "></i>
                                             </a>
-                                            <a href="{% url 'admin_delete' pk=profile.id %}"
+                                            <a href="{% url 'car_delete' pk=car.id %}"
                                                class="btn btn-outline-secondary btn-rounded ">
                                                 <i class="typcn typcn-archive text-danger"></i>
                                             </a>
