@@ -15,8 +15,8 @@ urlpatterns = [
     path('blog_single/', blog_single, name="blog_single"),
 
     path('register/', RegisterView.as_view(), name="register"),
-    path('login/', login_user, name="login"), 
-    path('logout/', logout_user, name="logout"),
+    path('login/', login_user, name="login_user"), 
+    path('logout/', logout_user, name="logout_user"),
     path('checkout/<int:pk>/', checkout, name='checkout'),
     path('confirmation/', confirmation, name='confirmation'),
 ]
